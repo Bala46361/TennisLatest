@@ -3,7 +3,11 @@ package com.tdd.tennis.model;
 public class Player {
 
 	private int scoredPoint;
-	private String name;
+	private String playerName;
+
+	public Player(String name) {
+		this.playerName = name;
+	}
 
 	public int getScoredPoint() {
 		return scoredPoint;
@@ -14,10 +18,7 @@ public class Player {
 	}
 
 	public String getPlayerName() {
-		return name;
+		return playerName;
 	}
 
-	public void setPlayerName(String name) {
-		this.name = name;
-	}
 }

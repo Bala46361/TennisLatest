@@ -15,10 +15,8 @@ public class PlayerTest {
 
 	@Before
 	public void initialize() {
-		playerOne = new Player();
-		playerOne.setPlayerName("Player One");
-		playerTwo = new Player();
-		playerTwo.setPlayerName("Player Two");
+		playerOne = new Player("Player One");
+		playerTwo = new Player("Player Two");
 	}
 
 	@Test

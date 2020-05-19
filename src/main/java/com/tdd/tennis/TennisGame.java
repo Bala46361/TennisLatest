@@ -8,11 +8,9 @@ public class TennisGame {
 	private Player playerTwo;
 
 	public TennisGame() {
-		playerOne = new Player();
-		playerOne.setPlayerName("Player One");
+		playerOne = new Player("Player One");
 
-		playerTwo = new Player();
-		playerTwo.setPlayerName("Player Two");
+		playerTwo = new Player("Player Two");
 	}
 
 	protected Player getPlayerOne() {
