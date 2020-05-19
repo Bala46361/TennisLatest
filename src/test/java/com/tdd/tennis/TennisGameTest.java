@@ -46,8 +46,6 @@ public class TennisGameTest {
 
 		tennisGame.getPlayerOne().incrementPlayerScore();
 
-		assertThat(tennisGame.calculateGameScore(), CoreMatchers.is("Fifteen-Love"));
-
 	}
 
 }

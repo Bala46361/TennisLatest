@@ -4,6 +4,10 @@ import com.tdd.tennis.model.Player;
 
 public class TennisGame {
 
+	private static final String HYPHEN = "-";
+
+	private static final String ALL = "-All";
+
 	private static final String[] scoreDescription = { "Love", "Fifteen" };
 
 	private Player playerOne;
@@ -24,11 +28,15 @@ public class TennisGame {
 	}
 
 	public String calculateGameScore() {
-		
-		if (playerOne.getScoredPoint() == playerTwo.getScoredPoint()) {
-			return scoreDescription[playerOne.getScoredPoint()] + "-All";
+
+		if (isScoresLevel()) {
+			return scoreDescription[playerOne.getScoredPoint()] + ALL;
 		} else {
-			return scoreDescription[playerOne.getScoredPoint()] + "-" + scoreDescription[playerTwo.getScoredPoint()];
+			return scoreDescription[playerOne.getScoredPoint()] + HYPHEN + scoreDescription[playerTwo.getScoredPoint()];
 		}
+	}
+
+	private boolean isScoresLevel() {
+		return playerOne.getScoredPoint() == playerTwo.getScoredPoint();
 	}
 }
