@@ -81,12 +81,22 @@ public class TennisGameTest {
 	}
 
 	@Test
-	public void gameResultShouldBeDeuceWhenBothPlayersScoresAtleastThreePointsEachAndTheirScoresAreEqual(){
-		
+	public void gameResultShouldBeDeuceWhenBothPlayersScoresAtleastThreePointsEachAndTheirScoresAreEqual() {
+
 		updatePlayerScoreBasedOnNumberOfPointsTaken(tennisGame.getPlayerOne(), 3);
 		updatePlayerScoreBasedOnNumberOfPointsTaken(tennisGame.getPlayerTwo(), 3);
 
 		assertThat(tennisGame.calculateGameScore(), CoreMatchers.is("Deuce"));
+	}
+
+	@Test
+	public void gameResultShouldBeAdvantageForThePlayerInLeadWhenAtLeastThreePointsScoredByEachPlayerAndPointDifferenceIsOne() {
+
+		updatePlayerScoreBasedOnNumberOfPointsTaken(tennisGame.getPlayerOne(), 4);
+		updatePlayerScoreBasedOnNumberOfPointsTaken(tennisGame.getPlayerTwo(), 3);
+
+		assertThat(tennisGame.calculateGameScore(), CoreMatchers.is("Player One Advantage"));
+
 	}
 
 	public void updatePlayerScoreBasedOnNumberOfPointsTaken(Player player, int numberOfPoints) {
