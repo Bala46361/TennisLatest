@@ -14,8 +14,6 @@ public class TennisGame {
 
 	private static final String WINS = " Wins";
 
-	private static final int MIN_POINT_DIFF_FOR_WIN = 2;
-
 	private static final int MIN_POINTS_TO_WIN = 4;
 
 	private static final String HYPHEN = "-";
@@ -43,29 +41,26 @@ public class TennisGame {
 
 	public String calculateGameScore() {
 
-		if (isAdvantage()) {
-			return getLeadingPlayerName() + ADVANTAGE;
+		if (isAnyPlayerEligibleForWinOrAdvantage()) {
+			return isScoredPointsDifferenceEqualToOne() ? getEligiblePlayerResult(ADVANTAGE)
+					: getEligiblePlayerResult(WINS);
 		} else if (isScoresLevel()) {
 			return isDeuce() ? DEUCE : scoreDescription[playerOne.getScoredPoint()] + ALL;
-		} else if (isGameWonByAnyPlayer()) {
-			return getLeadingPlayerName() + WINS;
 		} else {
 			return scoreDescription[playerOne.getScoredPoint()] + HYPHEN + scoreDescription[playerTwo.getScoredPoint()];
 		}
 	}
 
-	private boolean isAdvantage() {
-		return (playerOne.getScoredPoint() >= MIN_POINTS_TO_WIN || playerTwo.getScoredPoint() >= MIN_POINTS_TO_WIN)
-				&& (Math.abs(playerOne.getScoredPoint() - playerTwo.getScoredPoint()) == POINT_DIFF_ADVANTAGE);
+	private boolean isScoredPointsDifferenceEqualToOne() {
+		return Math.abs(playerOne.getScoredPoint() - playerTwo.getScoredPoint()) == POINT_DIFF_ADVANTAGE;
 	}
 
 	private boolean isDeuce() {
 		return playerOne.getScoredPoint() >= MIN_POINTS_TO_DECIDE_DEUCE;
 	}
 
-	private boolean isGameWonByAnyPlayer() {
-		return (playerOne.getScoredPoint() >= MIN_POINTS_TO_WIN || playerTwo.getScoredPoint() >= MIN_POINTS_TO_WIN)
-				&& (Math.abs(playerTwo.getScoredPoint() - playerOne.getScoredPoint()) >= MIN_POINT_DIFF_FOR_WIN);
+	private boolean isAnyPlayerEligibleForWinOrAdvantage() {
+		return playerOne.getScoredPoint() >= MIN_POINTS_TO_WIN || playerTwo.getScoredPoint() >= MIN_POINTS_TO_WIN;
 	}
 
 	private boolean isScoresLevel() {
@@ -75,5 +70,9 @@ public class TennisGame {
 	private String getLeadingPlayerName() {
 		return (playerOne.getScoredPoint() > playerTwo.getScoredPoint()) ? playerOne.getPlayerName()
 				: playerTwo.getPlayerName();
+	}
+
+	private String getEligiblePlayerResult(String result) {
+		return getLeadingPlayerName() + result;
 	}
 }
