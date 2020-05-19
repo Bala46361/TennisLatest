@@ -60,6 +60,16 @@ public class TennisGameTest {
 		assertThat(tennisGame.calculateGameScore(), CoreMatchers.is("Love-Thirty"));
 	}
 
+	@Test
+	public void gameScoreShouldBeFortyThirtyWhenPlayerOneHasTakenThreePointsAndPlayerTwoHasTakenTwoPoints() {
+
+		updatePlayerScoreBasedOnNumberOfPointsTaken(tennisGame.getPlayerOne(), 3);
+		updatePlayerScoreBasedOnNumberOfPointsTaken(tennisGame.getPlayerTwo(), 2);
+
+		assertThat(tennisGame.calculateGameScore(), CoreMatchers.is("Forty-Thirty"));
+
+	}
+
 	public void updatePlayerScoreBasedOnNumberOfPointsTaken(Player player, int numberOfPoints) {
 		for (int index = 0; index < numberOfPoints; index++) {
 			player.incrementPlayerScore();
