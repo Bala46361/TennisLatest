@@ -45,12 +45,10 @@ public class TennisGame {
 
 		if (isAdvantage()) {
 			return getLeadingPlayerName() + ADVANTAGE;
-		} else if (isDeuce()) {
-			return DEUCE;
+		} else if (isScoresLevel()) {
+			return isDeuce() ? DEUCE : scoreDescription[playerOne.getScoredPoint()] + ALL;
 		} else if (isGameWonByAnyPlayer()) {
 			return getLeadingPlayerName() + WINS;
-		} else if (isScoresLevel()) {
-			return scoreDescription[playerOne.getScoredPoint()] + ALL;
 		} else {
 			return scoreDescription[playerOne.getScoredPoint()] + HYPHEN + scoreDescription[playerTwo.getScoredPoint()];
 		}
@@ -62,7 +60,7 @@ public class TennisGame {
 	}
 
 	private boolean isDeuce() {
-		return isScoresLevel() && playerOne.getScoredPoint() >= MIN_POINTS_TO_DECIDE_DEUCE;
+		return playerOne.getScoredPoint() >= MIN_POINTS_TO_DECIDE_DEUCE;
 	}
 
 	private boolean isGameWonByAnyPlayer() {
