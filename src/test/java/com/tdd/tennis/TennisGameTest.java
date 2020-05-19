@@ -35,4 +35,10 @@ public class TennisGameTest {
 
 	}
 
+	@Test
+	public void gameScoreShouldBeLoveAllWhenGameStarts() {
+		assertThat(tennisGame.calculateGameScore(), CoreMatchers.is("Love-All"));
+
+	}
+
 }

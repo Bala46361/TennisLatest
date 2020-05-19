@@ -6,8 +6,6 @@ import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.tdd.tennis.TennisGame;
-
 public class PlayerTest {
 
 	Player playerOne;
