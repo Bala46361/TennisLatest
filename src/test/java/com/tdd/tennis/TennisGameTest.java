@@ -18,20 +18,20 @@ public class TennisGameTest {
 	@Test
 	public void playerScoreShouldBeZeroBeforeGameStarts() {
 
-		assertThat(tennisGame.getPlayerOneScoredPoint(), CoreMatchers.is(0));
+		assertThat(tennisGame.getPlayerOne().getScoredPoint(), CoreMatchers.is(0));
 	}
 
 	@Test
 	public void firstPlayerNameShouldBeInitializedAsPlayerOneWhenGameStarts() {
 
-		assertThat(tennisGame.getPlayerOneName(), CoreMatchers.is("Player One"));
+		assertThat(tennisGame.getPlayerOne().getPlayerName(), CoreMatchers.is("Player One"));
 
 	}
 
 	@Test
 	public void secondPlayerNameShouldBeInitializedAsPlayerTwoWhenGameStarts() {
 
-		assertThat(tennisGame.getPlayerTwoName(), CoreMatchers.is("Player Two"));
+		assertThat(tennisGame.getPlayerTwo().getPlayerName(), CoreMatchers.is("Player Two"));
 
 	}
 

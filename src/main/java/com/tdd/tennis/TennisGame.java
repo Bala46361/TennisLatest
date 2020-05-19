@@ -1,27 +1,25 @@
 package com.tdd.tennis;
 
+import com.tdd.tennis.model.Player;
+
 public class TennisGame {
 
-	private int playerScore;
-
-	private String playerOneName;
-	private String playerTwoName;
+	private Player playerOne;
+	private Player playerTwo;
 
 	public TennisGame() {
-		playerOneName = "Player One";
-		playerTwoName = "Player Two";
+		playerOne = new Player();
+		playerOne.setPlayerName("Player One");
+
+		playerTwo = new Player();
+		playerTwo.setPlayerName("Player Two");
 	}
 
-	public int getPlayerOneScoredPoint() {
-		return playerScore;
+	protected Player getPlayerOne() {
+		return playerOne;
 	}
 
-	public String getPlayerOneName() {
-		return playerOneName;
+	protected Player getPlayerTwo() {
+		return playerTwo;
 	}
-
-	public String getPlayerTwoName() {
-		return playerTwoName;
-	}
-
 }
