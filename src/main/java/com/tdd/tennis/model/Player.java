@@ -21,4 +21,8 @@ public class Player {
 		return playerName;
 	}
 
+	public void incrementPlayerScore() {
+		scoredPoint++;
+	}
+
 }

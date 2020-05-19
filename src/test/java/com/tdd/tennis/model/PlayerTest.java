@@ -41,4 +41,15 @@ public class PlayerTest {
 		assertThat(playerTwo.getPlayerName(), CoreMatchers.is("Player Two"));
 
 	}
+
+	@Test
+	public void playerScoredPointShouldGetIncrementedBy1WhenAPlayerScoresAPoint() {
+
+		int previousScoredPoint = playerOne.getScoredPoint();
+
+		playerOne.incrementPlayerScore();
+
+		assertThat(previousScoredPoint + 1, CoreMatchers.is(playerOne.getScoredPoint()));
+
+	}
 }
