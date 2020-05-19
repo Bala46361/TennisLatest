@@ -15,4 +15,12 @@ public class TennisGameTest {
 		assertThat(tennisGame.getPlayerOneScoredPoint(), CoreMatchers.is(0));
 	}
 
+	@Test
+	public void firstPlayerNameShouldBeInitializedAsPlayerOneWhenGameStarts() {
+		TennisGame tennisGame = new TennisGame();
+
+		assertThat(tennisGame.getPlayerOneName(), CoreMatchers.is("Player One"));
+
+	}
+
 }

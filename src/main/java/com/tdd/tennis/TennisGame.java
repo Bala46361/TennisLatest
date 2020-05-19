@@ -8,4 +8,8 @@ public class TennisGame {
 		return playerScore;
 	}
 
+	public String getPlayerOneName() {
+		return "Player One";
+	}
+
 }
