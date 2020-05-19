@@ -6,6 +6,8 @@ import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.tdd.tennis.model.Player;
+
 public class TennisGameTest {
 
 	TennisGame tennisGame;
@@ -44,7 +46,7 @@ public class TennisGameTest {
 	@Test
 	public void gameScoreShouldBeFifteenLoveWhenPlayerOneTakesTheFirstPoint() {
 
-		tennisGame.getPlayerOne().incrementPlayerScore();
+		updatePlayerScoreBasedOnNumberOfPointsTaken(tennisGame.getPlayerOne(), 1);
 
 		assertThat(tennisGame.calculateGameScore(), CoreMatchers.is("Fifteen-Love"));
 
@@ -53,10 +55,15 @@ public class TennisGameTest {
 	@Test
 	public void gameScoreShouldBeLoveThirtyWhenPlayerTwoWonTwoPointsAndPlayerOneHasNotTakenAnyPoints() {
 
-		tennisGame.getPlayerTwo().incrementPlayerScore();
-		tennisGame.getPlayerTwo().incrementPlayerScore();
+		updatePlayerScoreBasedOnNumberOfPointsTaken(tennisGame.getPlayerTwo(), 2);
 
 		assertThat(tennisGame.calculateGameScore(), CoreMatchers.is("Love-Thirty"));
+	}
+
+	public void updatePlayerScoreBasedOnNumberOfPointsTaken(Player player, int numberOfPoints) {
+		for (int index = 0; index < numberOfPoints; index++) {
+			player.incrementPlayerScore();
+		}
 	}
 
 }
