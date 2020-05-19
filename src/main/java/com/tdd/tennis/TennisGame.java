@@ -2,8 +2,10 @@ package com.tdd.tennis;
 
 public class TennisGame {
 
+	private int playerScore;
+
 	public int getPlayerOneScoredPoint() {
-		return 0;
+		return playerScore;
 	}
 
 }
