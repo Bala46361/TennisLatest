@@ -4,6 +4,10 @@ import com.tdd.tennis.model.Player;
 
 public class TennisGame {
 
+	private static final String DEUCE = "Deuce";
+
+	private static final int MIN_POINTS_TO_DECIDE_DEUCE = 3;
+
 	private static final String WINS = " Wins";
 
 	private static final int MIN_POINT_DIFF_FOR_WIN = 2;
@@ -34,8 +38,8 @@ public class TennisGame {
 	}
 
 	public String calculateGameScore() {
-		if ((playerOne.getScoredPoint() == playerTwo.getScoredPoint() && playerOne.getScoredPoint() >= 3)) {
-			return "Deuce";
+		if (isDeuce()) {
+			return DEUCE;
 		} else if (isGameWonByAnyPlayer()) {
 			return getLeadingPlayerName() + WINS;
 		} else if (isScoresLevel()) {
@@ -43,6 +47,10 @@ public class TennisGame {
 		} else {
 			return scoreDescription[playerOne.getScoredPoint()] + HYPHEN + scoreDescription[playerTwo.getScoredPoint()];
 		}
+	}
+
+	private boolean isDeuce() {
+		return isScoresLevel() && playerOne.getScoredPoint() >= MIN_POINTS_TO_DECIDE_DEUCE;
 	}
 
 	private boolean isGameWonByAnyPlayer() {
