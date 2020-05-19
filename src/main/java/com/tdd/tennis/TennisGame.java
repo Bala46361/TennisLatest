@@ -41,14 +41,19 @@ public class TennisGame {
 
 	public String calculateGameScore() {
 
+		String gameResult = "";
+
 		if (isAnyPlayerEligibleForWinOrAdvantage()) {
-			return isScoredPointsDifferenceEqualToOne() ? getEligiblePlayerResult(ADVANTAGE)
+			gameResult = isScoredPointsDifferenceEqualToOne() ? getEligiblePlayerResult(ADVANTAGE)
 					: getEligiblePlayerResult(WINS);
 		} else if (isScoresLevel()) {
-			return isDeuce() ? DEUCE : scoreDescription[playerOne.getScoredPoint()] + ALL;
+			gameResult = isDeuce() ? DEUCE : scoreDescription[playerOne.getScoredPoint()] + ALL;
 		} else {
-			return scoreDescription[playerOne.getScoredPoint()] + HYPHEN + scoreDescription[playerTwo.getScoredPoint()];
+			gameResult = scoreDescription[playerOne.getScoredPoint()] + HYPHEN
+					+ scoreDescription[playerTwo.getScoredPoint()];
 		}
+
+		return gameResult;
 	}
 
 	private boolean isScoredPointsDifferenceEqualToOne() {
