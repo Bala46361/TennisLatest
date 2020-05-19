@@ -28,8 +28,10 @@ public class TennisGame {
 	}
 
 	public String calculateGameScore() {
-
-		if (isScoresLevel()) {
+		if ((playerOne.getScoredPoint() >= 4 || playerTwo.getScoredPoint() >= 4)
+				&& (Math.abs(playerTwo.getScoredPoint() - playerOne.getScoredPoint()) >= 2)) {
+			return getLeadingPlayerName() + " Wins";
+		} else if (isScoresLevel()) {
 			return scoreDescription[playerOne.getScoredPoint()] + ALL;
 		} else {
 			return scoreDescription[playerOne.getScoredPoint()] + HYPHEN + scoreDescription[playerTwo.getScoredPoint()];
@@ -38,5 +40,10 @@ public class TennisGame {
 
 	private boolean isScoresLevel() {
 		return playerOne.getScoredPoint() == playerTwo.getScoredPoint();
+	}
+
+	private String getLeadingPlayerName() {
+		return (playerOne.getScoredPoint() > playerTwo.getScoredPoint()) ? playerOne.getPlayerName()
+				: playerTwo.getPlayerName();
 	}
 }

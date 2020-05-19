@@ -70,6 +70,16 @@ public class TennisGameTest {
 
 	}
 
+	@Test
+	public void playerOneShouldBeDeclaredAsWinnerWhenHeTakesMin4PointsInTotalAndMin2PointsMoreThanThePlayerTwo() {
+
+		updatePlayerScoreBasedOnNumberOfPointsTaken(tennisGame.getPlayerOne(), 4);
+		updatePlayerScoreBasedOnNumberOfPointsTaken(tennisGame.getPlayerTwo(), 2);
+
+		assertThat(tennisGame.calculateGameScore(), CoreMatchers.is("Player One Wins"));
+
+	}
+
 	public void updatePlayerScoreBasedOnNumberOfPointsTaken(Player player, int numberOfPoints) {
 		for (int index = 0; index < numberOfPoints; index++) {
 			player.incrementPlayerScore();
