@@ -41,4 +41,13 @@ public class TennisGameTest {
 
 	}
 
+	@Test
+	public void gameScoreShouldBeFifteenLoveWhenPlayerOneTakesTheFirstPoint() {
+
+		tennisGame.getPlayerOne().incrementPlayerScore();
+
+		assertThat(tennisGame.calculateGameScore(), CoreMatchers.is("Fifteen-Love"));
+
+	}
+
 }
