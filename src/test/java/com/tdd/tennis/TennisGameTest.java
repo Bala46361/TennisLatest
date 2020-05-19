@@ -46,6 +46,17 @@ public class TennisGameTest {
 
 		tennisGame.getPlayerOne().incrementPlayerScore();
 
+		assertThat(tennisGame.calculateGameScore(), CoreMatchers.is("Fifteen-Love"));
+
+	}
+
+	@Test
+	public void gameScoreShouldBeLoveThirtyWhenPlayerTwoWonTwoPointsAndPlayerOneHasNotTakenAnyPoints() {
+
+		tennisGame.getPlayerTwo().incrementPlayerScore();
+		tennisGame.getPlayerTwo().incrementPlayerScore();
+
+		assertThat(tennisGame.calculateGameScore(), CoreMatchers.is("Love-Thirty"));
 	}
 
 }

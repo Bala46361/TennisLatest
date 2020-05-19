@@ -8,7 +8,7 @@ public class TennisGame {
 
 	private static final String ALL = "-All";
 
-	private static final String[] scoreDescription = { "Love", "Fifteen" };
+	private static final String[] scoreDescription = { "Love", "Fifteen", "Thirty" };
 
 	private Player playerOne;
 	private Player playerTwo;
