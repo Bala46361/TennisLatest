@@ -34,7 +34,9 @@ public class TennisGame {
 	}
 
 	public String calculateGameScore() {
-		if (isGameWonByAnyPlayer()) {
+		if ((playerOne.getScoredPoint() == playerTwo.getScoredPoint() && playerOne.getScoredPoint() >= 3)) {
+			return "Deuce";
+		} else if (isGameWonByAnyPlayer()) {
 			return getLeadingPlayerName() + WINS;
 		} else if (isScoresLevel()) {
 			return scoreDescription[playerOne.getScoredPoint()] + ALL;

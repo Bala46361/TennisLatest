@@ -80,6 +80,15 @@ public class TennisGameTest {
 
 	}
 
+	@Test
+	public void gameResultShouldBeDeuceWhenBothPlayersScoresAtleastThreePointsEachAndTheirScoresAreEqual(){
+		
+		updatePlayerScoreBasedOnNumberOfPointsTaken(tennisGame.getPlayerOne(), 3);
+		updatePlayerScoreBasedOnNumberOfPointsTaken(tennisGame.getPlayerTwo(), 3);
+
+		assertThat(tennisGame.calculateGameScore(), CoreMatchers.is("Deuce"));
+	}
+
 	public void updatePlayerScoreBasedOnNumberOfPointsTaken(Player player, int numberOfPoints) {
 		for (int index = 0; index < numberOfPoints; index++) {
 			player.incrementPlayerScore();
