@@ -1,24 +1,9 @@
 package com.tdd.tennis;
 
 import com.tdd.tennis.model.Player;
+import static com.tdd.tennis.constants.TennisGameConstants.*;
 
 public class TennisGame {
-
-	private static final int POINT_DIFF_ADVANTAGE = 1;
-
-	private static final String ADVANTAGE = " Advantage";
-
-	private static final String DEUCE = "Deuce";
-
-	private static final int MIN_POINTS_TO_DECIDE_DEUCE = 3;
-
-	private static final String WINS = " Wins";
-
-	private static final int MIN_POINTS_TO_WIN = 4;
-
-	private static final String HYPHEN = "-";
-
-	private static final String ALL = "-All";
 
 	private static final String[] scoreDescription = { "Love", "Fifteen", "Thirty", "Forty" };
 
